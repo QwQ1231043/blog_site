@@ -64,25 +64,27 @@
               <p style="display:flex;align-items: center; justify-content: center; color:#5897fb; font-size:20px">Here is the sign up page</p></div>
 		<div class="format4">
       <div style="align-items: center; justify-content: center">
-    <form method="post">
-        {% csrf_token %}
-          <span>User name</span>
-        <input type="text" name="id_user_name" >
-        <span>Email</span>
-        <input type="text" name="id_email" >
-        <span>Password</span>
-        <input type="password" name="id_password" >
-        <input type="submit" value="Submit" style="font-size:20px; margin-right: 50px;">
-    </form>
-
+<form method="post">
+{% csrf_token %}
+ <div>
+ <label for="id_user_name">User name:</label>
+  <input type="text" name="user_name" maxlength="50" required id="id_user_name">
+   </div>
+  <div>
+ <label for="id_email">Email:</label>
+  <input type="email" name="email" maxlength="320" required id="id_email">
+   </div>
+  <div>
+ <label for="id_password">Password:</label>
+  <input type="password" name="password" maxlength="32" required id="id_password">
+       </div>
+ <input type="submit" value="Submit">
+ </form>
       </div>
 		  </div>
-
-
 		</td>
       <td width="700" height="700">
 		<div class="format7">
-
 		  </div></td>
     </tr>
   </tbody>

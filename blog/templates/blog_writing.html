@@ -1,9 +1,40 @@
 {% extends 'master.html' %}
 {% block title %} Sign up {% endblock %}
 {% block content %}
-    <form method="post">
-        {% csrf_token %}
-        {{ form }}
+<style>
+input[type="text"]{
+    width:500px;
+    height:100px;
+}
+select{
+    width:150px;
+    height:50px;
+}
+textarea{
+
+        width:1000px;
+    height:200px;
+}
+    </style>
+    <div style="margin-left: 30px; display:block; color:black; font-size: 30px">{% csrf_token %}
+        <p>
+            Please write your <strong>Title</strong> here:
+        </p>
+        <input type="text" name="title" required id="id_title" maxlength="200">
+
+        <p>
+            Please write your <strong>Content</strong> here:
+        </p>
+        <textarea name="content" cols="40" rows="10"  id="id_content"></textarea>
+        <p>
+            Status
+        </p>
+        <select name="status" required id="id_status">
+            <option value="0" selected>draft</option>
+            <option value="1" selected>Publish</option>
+
+        </select>
         <input type="submit" value="Submit">
-    </form>
+        </form>
+    </div>
 {% endblock %}

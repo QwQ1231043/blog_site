@@ -8,18 +8,22 @@
     <link rel="icon" href="{% static 'doge.jpg' %}">
 
     <style>
+
 		.format1{
 			width:35%;
 			height:2000px;
 			background-color: #5897fb;
 			background-position:right top;
 		}
+
         		.format2{
 			width:75%;
 			height:1000px;
 			background-color: white;
 			background-position:right top;
+                    background-color:antiquewhite;
 		}
+
     .center {
             display: block;
             margin-left: auto;
@@ -31,9 +35,11 @@
             font-size: 100%;
         }
 
+
         li {
             font-size: 200%;
         }
+
         a{
             color:aliceblue;
         }
@@ -47,19 +53,45 @@
     <main>
 
             {% if user.is_authenticated %} {# see if user is logged in #}
-                 <div style="height:100px; width:auto; background-color:lightblue"></div>
-                Hi {{ user.username }}
-                <a href={% url "profile" %}> Profile </a>
+                <div style="height:100px; width:auto; background-color:lightblue; display:flex; column-gap: 0">  <p style="color:black;font-size:35px;font-family: 'Times New Roman';margin-left:50px"><strong>Jingtian and Dongyao Blog Site</strong></p>
+                </div>
+
+                <div style="height:150px; width:auto; background-color:darkcyan ;display:flex; column-gap: 0; text-align: right;justify-content: space-between;align-content: center;align-items: center" >
+                    <div><p style="font-size:30px;justify-content: left; color:white;margin-left:50px ">Hi {{ user.username }}</p></div>
+
+                    <div style="margin-right: 40px">
+
+                        <a href={% url "profile" %} style="font-size:50px;margin-left:30px"> Profile</a>
                 <form action="{% url 'logout' %}" method="post">
                     {% csrf_token %}
-                    <button type="submit">Log Out</button>
+                    <button type="submit" style="">Log Out</button>
+
                 </form>
+                      </div>
+                </div>
+                <div style="column-gap:0;display:flex;">
+
+                    <div class="format2">
+                        {% block content %}{% endblock %}
+                    </div>
+
+                <div class="format1" style="">
+                        <h3>
+            <a href={% url "blog_home" %} style="font-size:35px;margin-left:30px">Blog Home</a>
+        </h3>
+                </div>
+                </div>
+
+
 
             {% else %}
-                <div style="height:100px; width:auto; background-color:lightblue; display:flex; column-gap: 0">  {% block content %}{% endblock %}
+                <div style="height:100px; width:auto; background-color:lightblue; display:flex; column-gap: 0">
+                    <p style="color:black;font-size:35px;font-family: 'Times New Roman';color:black;margin-left:50px"><strong>Jingtian and Dongyao Blog Site</strong></p>
                 </div>
-                <div style="height:150px; width:auto; background-color:darkcyan ;display:flex; column-gap: 0">  <p>You are logged off </p><p style="display:block;text-align:right;width:2000px;font-size:35px;
-                color:white;"><a href="{% url 'login' %}" style="width:auto;text-align: right;">Log in</a>
+                <div style="height:150px; background-color:darkcyan ;display:flex; column-gap: 0">  <p style="font-size:30px;justify-content: left; color:rgba(221,0,255,0.48); color:white; width:500px; margin-left:50px">You are logged off </p>
+
+                    <p style="display:block;text-align:right;width:2000px;font-size:35px;
+                color:white;margin-right: 40px"><a href="{% url 'login' %}" style="width:auto;text-align: right;">Log in</a>
                  <a href={% url "signup" %}>Sign up</a>
                     <a href={% url "password_reset" %}>Forget password</a></p>
                 </div>
@@ -69,9 +101,9 @@
 
                     </div>
 
-                <div class="format1" style=""><p>asdf</p>
+                <div class="format1" style="">
                         <h3>
-            <a href={% url "blog_home" %}>Blog Home</a>
+            <a href={% url "blog_home" %} style="font-size:50px;margin-left:30px">Blog Home</a>
         </h3>
                 </div>
                 </div>
